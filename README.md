@@ -2,7 +2,7 @@
 
 
 # Project Pikkanode
-## Homework 23.1, 23.2, 24.1 & 24.2
+## Homework 23.1, 23.2, 24.1, 24.2 and 26.1
 ### Introduction of React & JSX
 This React app combine many homework together. The links
 in this project can not use.
@@ -27,7 +27,7 @@ Build a picture card component to display each picture card. By this component w
 
 This is not connect the database yet, So I mock the data.
 
-### React Router,Refs & Axios
+### React Router, Refs & Axios
 #### 26.1: Pikkanode SignUp Page
 Use `react-router` to do the path `/signup` and make the components `<signup/>` that have elements as follows
 - Email, password, confirm password and a signup button (Validate what did user type).
