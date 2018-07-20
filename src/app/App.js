@@ -3,12 +3,19 @@ import Routes from "./routes"
 import Navbar from "../components/Navbar"
 
 class App extends Component {
+	state = {
+		isAuth: false
+	};
+
+	onChangeIsAuth = () => {
+		this.setState({isAuth: true})
+	};
 
 	render() {
 		return (
 			<div>
 				<Navbar/>
-				<Routes/>
+				<Routes onChangeIsAuth={this.onChangeIsAuth}/>
 			</div>
 		)
 	}

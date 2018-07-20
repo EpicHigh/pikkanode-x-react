@@ -1,5 +1,5 @@
 import React from "react";
-import { Link } from "react-router-dom"
+import { Link } from "react-router-dom";
 
 const logo = `https://raw.githubusercontent.com/panotza/pikkanode/master/pikkanode.png`;
 
@@ -9,10 +9,16 @@ const Navbar = () => {
       <nav className="pa3 pa4-ns bb b--white-10">
         <div className="navbar">
           <div className="navbar-left w-50">
-            <img className="br-100 pa1 ba b--black-10 h3 w3 logo" src={logo} />
+            <Link to="/" title="home">
+              <img
+                className="br-100 pa1 ba b--black-10 h3 w3 logo"
+                src={logo}
+                alt="Pikkanode Logo"
+              />
+            </Link>
             <Link
               className="link dim gray f6 f5-ns dib mr3 ml3"
-              to="/"
+              to="/about"
               title="About"
             >
               About
@@ -37,12 +43,14 @@ const Navbar = () => {
               <Link
                 className="f6-ns dib black bg-animate hover-bg-black hover-near-white b--dark-gray no-underline pv2-ns ph4-ns br-pill ba b--black-90 ml3-ns"
                 to="/signup"
+                title="Sign-up"
               >
                 Sign Up
               </Link>
               <Link
                 className="f6-ns dib black bg-animate hover-bg-black hover-near-white b--dark-gray no-underline pv2-ns ph4-ns br-pill ba b--black-90"
                 to="/signin"
+                title="Sign-in"
               >
                 Sign In
               </Link>
