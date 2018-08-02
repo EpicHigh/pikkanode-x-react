@@ -1,13 +1,13 @@
 import React, { Component } from "react";
-import axios from "axios"
-
+import axios from "axios";
+import server from "../db/server";
 
 class Signup extends Component {
   state = {
     error: ``
   };
 
-  handleFormSubmit = event => {
+  onFormSubmit = event => {
     event.preventDefault();
     const email = String(event.target.elements["email-address"].value),
       pass = String(event.target.elements.password.value),
@@ -18,24 +18,23 @@ class Signup extends Component {
         })
       : email.includes(" ") || pass.includes(" ") || confirmPass.includes(" ")
         ? this.setState({
-            error: `Email address, password or comfirm password are not spaces.`
+            error: `Email address, password or confirm password are not spaces.`
           })
         : pass.length < 6
           ? this.setState({
               error: `Your password length must be at least 6 characters`
             })
-          : this.postRequest(email, pass)
+          : this.postRequest(email, pass);
   };
 
   postRequest = async (email, password) => {
-  	try {
-		  const data = {"email": email, "password": password};
-		  const response = await axios.post(`http://localhost:3333/signup`,data);
-		  console.log(response.request.responseText)
-	  }
-  	catch (e) {
-		  console.error(`แอบเออเร่อนะจ๊ะ แต่เธอไม่รู้บ้างเลย`)
-	  }
+    try {
+      const data = { email, password };
+      const response = await axios.post(`${server}signup`, data);
+      console.log(response.request.responseText);
+    } catch (e) {
+      console.error(`แอบเออเร่อนะจ๊ะ แต่เธอไม่รู้บ้างเลย`);
+    }
   };
 
   render() {
@@ -44,7 +43,11 @@ class Signup extends Component {
         {this.state.error && (
           <div className="alert alert-danger">{this.state.error}</div>
         )}
-        <form className="measure center" method="post" onSubmit={this.handleFormSubmit}>
+        <form
+          className="measure center"
+          method="post"
+          onSubmit={this.onFormSubmit}
+        >
           <fieldset className="ba b--transparent ph0 mh0" id="sign_up">
             <legend className="f4 fw6 ph0 mh0">Sign Up</legend>
             <div className="mt3">

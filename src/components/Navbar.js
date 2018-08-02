@@ -1,9 +1,12 @@
 import React from "react";
+import { connect } from "react-redux";
 import { Link } from "react-router-dom";
+import NavbarRightAuth from "./Navbar/NavbarRightAuth";
+import NavbarRightUnAuth from "./Navbar/NavbarRightUnAuth";
 
 const logo = `https://raw.githubusercontent.com/panotza/pikkanode/master/pikkanode.png`;
 
-const Navbar = () => {
+const Navbar = ({ isAuth }) => {
   return (
     <div>
       <nav className="pa3 pa4-ns bb b--white-10">
@@ -30,36 +33,21 @@ const Navbar = () => {
             >
               Contact
             </Link>
-            <Link
-              className="link dim gray f6 f5-ns dib mr3"
-              to="/create"
-              title="Create"
-            >
-              Create
-            </Link>
-          </div>
-          <div className="navbar-right w-50">
-            <div className="wrapper-navbar-right">
+            {isAuth && (
               <Link
-                className="f6-ns dib black bg-animate hover-bg-black hover-near-white b--dark-gray no-underline pv2-ns ph4-ns br-pill ba b--black-90 ml3-ns"
-                to="/signup"
-                title="Sign-up"
+                className="link dim gray f6 f5-ns dib mr3"
+                to="/create"
+                title="Create"
               >
-                Sign Up
+                Create
               </Link>
-              <Link
-                className="f6-ns dib black bg-animate hover-bg-black hover-near-white b--dark-gray no-underline pv2-ns ph4-ns br-pill ba b--black-90"
-                to="/signin"
-                title="Sign-in"
-              >
-                Sign In
-              </Link>
-            </div>
+            )}
           </div>
+          {isAuth ? <NavbarRightAuth /> : <NavbarRightUnAuth />}
         </div>
       </nav>
     </div>
   );
 };
 
-export default Navbar;
+export default connect(state => ({ isAuth: state.isAuth }))(Navbar);

@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { Redirect } from "react-router-dom";
+import api from "../db/server"
 import axios from "axios";
 
 class Create extends Component {
@@ -17,7 +18,7 @@ class Create extends Component {
     try {
     	const options = {
 		    method: "post",
-		    url: "http://localhost:3333/create",
+		    url: `${api}/create`,
 		    data: data,
 		    headers: {"Content-Type": "multipart/form-data"}
 	    };

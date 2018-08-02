@@ -1,32 +1,36 @@
 import React, { Component } from "react";
 import axios from "axios";
+import { connect } from "react-redux";
+import { logIn } from "../actions/actions";
+import server from "../db/server";
 
 class Signin extends Component {
-  handleFormSubmit = async event => {
+  state = {
+    error: ``
+  };
+
+  onFormSubmit = async event => {
     event.preventDefault();
     const email = String(event.target.elements["email-address"].value);
     const pass = String(event.target.elements.password.value);
     await this.postRequest(email, pass);
-	  event.target.elements["email-address"].value = "";
-	  event.target.elements.password.value = ""
   };
 
   postRequest = async (email, password) => {
     try {
       const data = { email, password };
-      const response = await axios.post(`http://localhost:3333/signin`, data);
-      const status = JSON.parse(response.request.responseText).status;
+      const response = await axios.post(`${server}signin`, data);
+      const status = JSON.parse(response.request.responseText);
       console.log(status);
-      status !== "success"
-        ? this.setState({ error: status })
-        : this.props.onChangeIsAuth()
+      if (Object.keys(status)[0] !== "success") {
+        this.setState({ error: status.error });
+      } else {
+        this.props.dispatch(logIn());
+        this.props.history.push("/");
+      }
     } catch (e) {
-      console.error(`แอบเออเร่อนะจ๊ะ แต่เธอไม่รู้บ้างเลย`)
+      console.error(`แอบเออเร่อนะจ๊ะ แต่เธอไม่รู้บ้างเลย`);
     }
-  };
-
-  state = {
-    error: ``
   };
 
   render() {
@@ -34,7 +38,7 @@ class Signin extends Component {
       <main className="pa4 black-80">
         <form
           className="measure center"
-          onSubmit={event => this.handleFormSubmit(event, this.props.isAuth)}
+          onSubmit={event => this.onFormSubmit(event, this.props.isAuth)}
           method="post"
         >
           {this.state.error && (
@@ -84,4 +88,4 @@ class Signin extends Component {
   }
 }
 
-export default Signin;
+export default connect(state => ({ isAuth: state.isAuth }))(Signin);
