@@ -32,8 +32,14 @@ This is not connect the database yet, So I mock the data.
 
 ### React Router, Refs & Axios
 #### 26.1: Pikkanode SignUp Page
-Use `react-router` to do the path `/signup` and make the components `<signup/>` that have elements as follows
+Use `react-router` to make the path `/signup` and a component named `<signup/>` that have elements as follows
 - Email, password, confirm password and a signup button (Validate what did user type).
 - After signup, send what did user type in json file to a server and `console.log` things that server responses.
-
-[Use this fetch function.](https://github.com/panotza/pikkanode/blob/master/api-tester.js)
+#### 26.2: Pikkanode SignIn Page
+Use `react-router` to make the path `/signin` and a component named `<signin/>` that have elements as follows
+- Email, password and sign in button, validate data too
+- After press signin, the app will fetch data in JSON format to signin API. If the server responses "ok", `setState({isAuth: true})`.
+#### 26.3 Pikkanode Create Page
+Use `react-router` to make the path `/create` and a component named `<CreatePikka/>` that have elements as follows
+- A form that contains a caption (textarea), a picture (file) and a create button.
+- After press a create button, the app will fetch data in `multipart/from-data` to create API. If the server responses "ok", redirect to the path `/`
