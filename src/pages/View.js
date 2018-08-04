@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { database } from "../db/firebase";
-import CommentBox from "../components/CommentBox"
+import CommentBox from "../components/CommentBox";
 
 class View extends Component {
   state = {
@@ -18,11 +18,10 @@ class View extends Component {
           comment: childSnapshot.val().comment,
           user: childSnapshot.val().user,
           email: childSnapshot.val().email,
-	        id: childSnapshot.key
+          id: childSnapshot.key
         });
       });
-      comment &&
-        this.setState({comment});
+      comment && this.setState({ comment });
     });
   }
 
@@ -30,7 +29,7 @@ class View extends Component {
     event.preventDefault();
     const comment = event.target.elements.comment.value;
     this.commentRef.push({ comment, user: "Anonymous", email: "Anonymous" });
-	  event.target.elements.comment.value = ""
+    event.target.elements.comment.value = "";
   };
 
   render() {
@@ -43,19 +42,19 @@ class View extends Component {
           <h2 className="post-title">{this.props.pikka.caption}</h2>
         </div>
         <div className="comments block-comment w-100-ns w-40-m w-25-l shadow-3">
-	        {this.state.comment.map(comment => {
-	        	return <CommentBox key={comment.id} {...comment}/>
-	        })}
-	        <div className="center mw7 pt3 measure">
-		        <form onSubmit={this.onCommentSubmit}>
-			        <input
-				        className="input-search"
-				        type="text"
-				        name="comment"
-				        placeholder="Comment"
-			        />`
-		        </form>
-	        </div>
+          {this.state.comment.map(comment => {
+            return <CommentBox key={comment.id} {...comment} />;
+          })}
+          <div className="center mw7 pt3 measure">
+            <form onSubmit={this.onCommentSubmit}>
+              <input
+                className="input-search"
+                type="text"
+                name="comment"
+                placeholder="Comment"
+              />`
+            </form>
+          </div>
         </div>
       </div>
     );

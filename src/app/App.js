@@ -5,7 +5,7 @@ import Navbar from "../components/Index/Navbar";
 const App = () => (
   <div>
     <Navbar />
-    <Routes/>
+    <Routes />
   </div>
 );
 

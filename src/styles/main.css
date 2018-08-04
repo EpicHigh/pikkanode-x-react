@@ -129,109 +129,109 @@ article img {
 /*For Pikka*/
 
 .pikka-caption {
-    transition: all 1s ease;
+  transition: all 1s ease;
 }
 
 .pikka-caption:hover {
-    -webkit-filter: grayscale(100%);
+  -webkit-filter: grayscale(100%);
 }
 
 .container-pikka {
-    display: flex;
-    flex-wrap: wrap;
-    flex-direction: row;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
 }
 
 .block-image {
-    height: 25rem;
-    margin-left: auto;
+  height: 25rem;
+  margin-left: auto;
 }
 
 .block-comment {
-    height: 25rem;
-    margin-right: auto;
-    overflow: auto;
+  height: 25rem;
+  margin-right: auto;
+  overflow: auto;
 }
 
 /* title block */
 .title {
-    background-size: cover;
-    background-repeat: no-repeat;
-    color: #acbcb3;
+  background-size: cover;
+  background-repeat: no-repeat;
+  color: #acbcb3;
 }
 
 .post-title {
-    padding-left: 1rem;
-    padding-right: 1rem;
-    text-align: center;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  text-align: center;
 }
 
 .tag {
-    padding: 0.7rem;
-    background: #fff;
-    border: none;
-    font-size: 0.9rem;
+  padding: 0.7rem;
+  background: #fff;
+  border: none;
+  font-size: 0.9rem;
 }
 
 .black-pikka {
-    color: #000;
-    margin-left: 70px;
+  color: #000;
+  margin-left: 70px;
 }
 
 .span {
-    color: #bfc1c3;
+  color: #bfc1c3;
 }
 
 .text-pikka {
-    background-color: #f8f9fa;
+  background-color: #f8f9fa;
 }
 
 .txt {
-    margin: 0 20px;
-    line-height: 1.5;
-    margin-top: 35px;
-    text-align: justify;
+  margin: 0 20px;
+  line-height: 1.5;
+  margin-top: 35px;
+  text-align: justify;
 }
 
 .txt:first-letter {
-    font-size: 90px;
-    float: left;
-    margin: -24px 20px -20px 0;
+  font-size: 90px;
+  float: left;
+  margin: -24px 20px -20px 0;
 }
 
 /* comments block */
 
 .comments {
-    background-color: #fff;
+  background-color: #fff;
 }
 
 .top p {
-    font-weight: bold;
-    font-size: 13px;
-    margin-top: 20px;
-    margin-left: 90px;
+  font-weight: bold;
+  font-size: 13px;
+  margin-top: 20px;
+  margin-left: 90px;
 }
 
 .comment-box img {
-    width: 57px;
-    float: left;
-    margin: 0 20px;
-    margin-top: 5px;
-    border-radius: 50%;
+  width: 57px;
+  float: left;
+  margin: 0 20px;
+  margin-top: 5px;
+  border-radius: 50%;
 }
 
 .name {
-    padding-top: 15px;
-    font-weight: bold;
+  padding-top: 15px;
+  font-weight: bold;
 }
 
 .hour {
-    font-size: 11px;
-    margin-left: 3px;
+  font-size: 11px;
+  margin-left: 3px;
 }
 
 .c-txt {
-    margin-left: 100px;
-    margin-right: 20px;
-    text-align: justify;
+  margin-left: 100px;
+  margin-right: 20px;
+  text-align: justify;
 }
