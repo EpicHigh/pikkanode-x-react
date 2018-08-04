@@ -4,7 +4,7 @@ import uuid from "uuid";
 import { storage, database } from "../db/firebase";
 
 class Create extends Component {
-  onFormSubmit = async event => {
+  onFormSubmit = event => {
     event.preventDefault();
     const caption = event.target.elements.caption.value;
     const photo = event.target.elements.photo.files[0];
@@ -16,14 +16,14 @@ class Create extends Component {
         const name = unique.slice(0, unique.indexOf("-"));
         databaseRef.push({ pikka: name, caption });
         storageRef
-          .child(`/pikka/${name}`)
+          .child(`pikka/${name}`)
           .put(photo)
           .then(() => {
             console.log(`Upload successfully`);
             this.setState({ statusText: "OK" });
           });
       } else {
-        this.setState({ error: "A caption and file required" });
+        this.setState({ error: "A caption and file required." });
       }
     } catch (e) {
       console.error(e.message);

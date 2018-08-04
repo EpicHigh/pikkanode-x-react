@@ -88,4 +88,10 @@ class Signin extends Component {
   }
 }
 
-export default connect(state => ({ isAuth: state.isAuth }))(Signin);
+const mapStateToProps = state => {
+  return {
+    isAuth: state.root
+  };
+};
+
+export default connect(mapStateToProps)(Signin);

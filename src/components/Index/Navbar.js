@@ -1,8 +1,8 @@
 import React from "react";
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
-import NavbarRightAuth from "./Navbar/NavbarRightAuth";
-import NavbarRightUnAuth from "./Navbar/NavbarRightUnAuth";
+import NavbarRightAuth from "../Navbar/NavbarRightAuth";
+import NavbarRightUnAuth from "../Navbar/NavbarRightUnAuth";
 
 const logo = `https://raw.githubusercontent.com/panotza/pikkanode/master/pikkanode.png`;
 
